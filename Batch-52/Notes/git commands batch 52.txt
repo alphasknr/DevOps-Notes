@@ -1,0 +1,23 @@
+GIt & Git HUB : 
+
+Configure: 
+
+git config --list --> all about your configuration 
+
+git config --global user.name "BABJI-AWS-DEVOPS"
+git config --global user.email "babji.drru@gmail.com"
+
+USERNAME & PASSWORD
+
+git --version 
+    2  sudo yum install git -y 
+    3  git --version 
+    4  git config --list 
+    5  git config --global user.name "BABJI-AWS-DEVOPS"
+    6  git config --global user.email "babji.drru@gmail.com"
+    7  git config --list 
+    8  history 
+	
+-----------------------------------------------
+need to understand git / git branching stregy 
+

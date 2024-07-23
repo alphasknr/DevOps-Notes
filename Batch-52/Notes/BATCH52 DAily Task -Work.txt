@@ -1,0 +1,13 @@
+AWS Account
+Linux Instance with Webbrowser Connectivity 
+Linux Instance with MOBXTERM
+Liux Instance with Git Terminal
+windows instance install few softwares and change timezone
+Windows Instance adding new volume make it active
+Linux Basics with differnt commands (file commands ) 
+Linux Instance adding new volume make it active
+Create Ec2 machine with Apache Webserver make it as active ( work with yum command) 
+Create Ec2 Server and bootstarp Script 
+Create Ec2 Server with LIVE WEBHOSTING ( URL name will change later R53) 
+Create Ec2 Server with LIVE WEBHOSTING without bootstrap Script 
+Create ALB and distribute the traffic among 2 servers.

@@ -1,0 +1,179 @@
+** File Commands in LINUX **
+=============================
+$ : Normal User  ( read files write files but no per and no packages installation ) 
+
+sudo -s : JUMP normal user to root USER 
+
+# : Root User ( can do any thing ) 
+
+sudo username( sudo ec2-user) : JUMp from root user to normal user
+
+clear : to clear the content from your current screen 
+
+------------------------------------------------------------------
+
+pwd : present working directory 
+
+cd .. : move back 
+
+cd: change directory
+
+cd / : directly you can jump from main dir. 
+
+ls : list of the files ( argments l,la etc,) 
+
+whoami  : current log in username 
+
+uname : name of kernal 
+
+uname -r : krnal version 
+
+touch : for empty file & ls 
+
+cat filename : read the data  
+
+cat > filenmae : create and write the file  ( ctrl + Z ) 
+
+vi filename : to read & writedata into files 
+
+read : vi myfile1 ---> read data --> exit  --> esc button along with :q! ( without save )
+
+write: vi myfile1 ---> write data --> i (insert) button --> enter new text --> save (data ...) -->esc button --> :wq! (save) 
+
+cat > newfilename ---> to create new file along with write mode 
+
+ls -ltr : list of files in sorting order
+
+ls -r : to read files in reverse order
+
+--help 
+
+ls --help : all about list check notes from LINUX 
+
+cat --help : all about cat
+
+mkdir : used to create directory in the location 
+
+mv <src> <target>: move the files from one place to other palce  (cut ) 
+
+cp <src> <target>: copy the files from one place to other palce  (copy ) 
+
+rm : to delete direct file 
+
+rm -rf : to delete everything ( mlp files and dir's ) 
+---------------------------------------------
+
+Process Commands : 
+
+ps : display current process 
+
+pstree : display curent active process 
+
+df -h : disk space 
+
+lsblk : you can what are devices connected to your server (mount) 
+
+kill pid : kill process id 
+
+killall NAME: kill all process with NAME 
+
+bg : this commands uses backround process 
+
+-------------------------------------------------------
+How to add new voulme to LINUX SERVER  (HYD) 
+
+[root@ip-172-31-16-89 my-data]# history
+    
+   10  df -h
+   11  lsblk
+   12  file -s /dev/nvme1n1
+   13  mkfs -t xfs /dev/nvme1n1
+   14  mkdir -p /apps/my-data
+   15  cd /apps/my-data
+   16  pwd
+   17  mount /dev/nvme1n1 /apps/my-data
+   18  df -h
+   19  lsblk
+   20  clear
+   21  pwd
+   22  touch f1 f2 f3 f4 f5
+   23  ls
+   24  pwd
+   25  history
+
+++++++++++++++++++++++++++++++++++++++++++++++++++
+LINUX Installaion : 
+
+linux is lightweight / uses less resoureces ... 
+
+less memory, less process and more speed and PACKAGE not impact any virus ( no exe files ) 
+
+GIT PACKAGE 
+
+MAVEN PACKAGE 
+
+APACHE PACKAGE etc, 
+
+=> yum : YUM package manager ( library ) : set of PACKAGES org by Linux Commnity ( AMAZON LINUX, RED HAT etc)
+
+       : Yellowdog Updater Modified
+	   
+	   : Free and Open Source through command line # LINUX 
+	   
+	   sudo yum install NAMEOFTHE_PACKAGE -y ( passing Yes argument) 
+	   
+=>apt-get : UBNTU , Debian Linux OS 
+
+        : PAckage varuios libraries to install diffent packages and tools 
+		
+		: no much dependancies 
+		 
+		: Advanced Package Tool 
+		
+		
+yum list instllaed  : list of packes in my linux os 
+
+yum list installed |  grep http*
+
+yum list installed | grep git*
+
+sudo yum install httpd -y
+
+
+sudo service httpd status
+
+sudo service httpd start
+
+wget --> take url from internet ( http link )
+
+unzip --> unzip the directory use in to local system
+++++++++++++++++++++++++++++++++++++++++++++++
+WEbsite Deployment :
+Boot Starp Script 
+
+#!/bin/bash
+sudo yum update -y 
+sudo yum install -y httpd
+echo '<h1> MY WEB-SERVER  </h1>' > /var/www/html/index.html
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
++++++++++++++++++++++++++++++++++++++++
+@ec2-user: $ / #
+
+Website Deployment -- bootstrap level 
+
+#!/bin/bash
+sudo yum update -y 
+sudo yum install -y httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+mkdir temp
+cd temp
+wget https://www.free-css.com/assets/files/free-css-templates/download/page296/neogym.zip
+unzip neogym.zip
+cd neogym-html
+sudo mv * /var/www/html
+
+
+

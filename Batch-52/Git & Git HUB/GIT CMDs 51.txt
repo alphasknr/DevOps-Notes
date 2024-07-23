@@ -1,0 +1,77 @@
+git commands 
+
+configuration 
+
+git config --list  --> all details you see after configuration 
+
+USERNAME & PASSWORD of your git hub account need to add 
+
+git config --global user.name "USERNAME"
+
+git config --global user.email "EMAIL" 
+
+++++++++++++++++++++++++++++++++++++
+
+git init --> intiliase as working dir
+
+git add filename --> one perticular file move to staging area
+
+git status --> what is status of my file. ( tracked file / untrackedfile ) 
+
+git add . --> all the files move to stating area 
+
+git commit --> all tracked files need move to git repo locally 
+
+git log --> behaviour of your git commit 
+
+++++++++++++++++++++++++++++++++++++++++++
+add repo in to git hub account 
+
+git remote add origin URL ( https://github.com/BABJI-AWS-DEVOPS/Batch51-Basics.git ) ( URL) --> added 
+
+git push -u origin master (add your local to global )
+
+=========================================
+ORG -- BRACHING 
+
+git branch --list --> to verify number of branchs in the terminal 
+
+git branch BRANCHNAME --> to create branch in the GIT  Shop1
+
+git checkout branchname / git swith branchname --> switching towards branches 
+
+git branch -m OldBranchName NewBranchName --> to rename of your git branch
+
+git remote add origin URL ( https://github.com/BABJI-AWS-DEVOPS/git-branching-51.git ) ( URL) --> added 
+
+git push -u origin master ( add your local to github ) --> one perticularBranch
+
+git push -u origin master ( add your local to github ) --> all branches at a time
+
+git branch -d BRANCHNAME / git branch --delete BRANCHNAME --> to delete brances  
+
+===================================================
+MERGE REBASE IGNORE STACH 
+
+git merge BRANCHNAME -->add all files from subbranch to parent brach ( all chanes into existed branch )
+
+git rebase BRANCHNAME --> commits --> Seq Commits  for perticularbranch 
+
+git log --oneline --> you check commits in order
+
+IGNORE (.gitignore) is file need save all file types before git status
+
+
+stash 
+-----
+git stash -- to hide the data 
+
+git stash list --- list stack indexes 
+
+git stash apply stash@{index} 
+
+git push -- adding element  
+
+git pop -- delete element
+
+git stash show --> we can check how many times made stashing in the respective project

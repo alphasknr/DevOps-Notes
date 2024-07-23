@@ -1,0 +1,193 @@
+To install the latest stable versions of Docker CLI, Docker Engine, and their
+# dependencies:
+#
+# 1. download the script
+#
+#   $ curl -fsSL https://get.docker.com -o install-docker.sh
+
+2. run the script with --dry-run to verify the steps it executes
+#
+#   $ sh install-docker.sh 
+
+3. find docker version
+docker --version
+
+4. find docker location in ubuntu
+which docker
+
+5. find list of images inside of docker host
+docker images / docker image ls
+
+6.pulling docker image from docker hub to ec2
+docker pull tomee
+
+7. list runing containers 
+docker ps
+
+8.to run tomme container 
+docker run --name  NAMEOFTHECONAATINER -p USERPORT:Defaultport IMAGENAME 
+
+9. to run jaenkins server 
+
+docker run --name myjenkins -p 9999:8080 -d jenkins/jenkins
+
+-p: naming user port 
+
+-d: no more log msg in server 
+
+-it: Intractive mode ( we can use for programming / os )
+
+-e : adding environment variable 
+
+-v : volume adding to docker 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+task1: run tomact conatiner 
+task2: run jenkins conatiner 
+task3: deploye small webpage in tomcat make access by everyone (DNS)
+task4: run a job share that screen shot into what's app group 
+task5: centos /python cotainer 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+docker pull centos
+   34  docker images 
+   35  docker run --name mycentos -it centos
+   36  docker ps 
+   37  docker ps -la
+   38  docker ls 
+   42  docker ps --help
+   43  docker ps -a
+   44  docker start f62c0b9144b7
+   45  docker ps -a : find out all containers ( both stop and start )
+   46  docker start 9cf8872de3b9
+   47  docker ps 
+   48  clear
+   49  docker pull python
+   50  docker images 
+   51  docker run --name mypython -it python 
+   52  history
+   
+++++++++++++++++++++++++++
+
+Remmove one Container & one Image
+
+docker ps 
+   54  docker stop mypython : stop running container 
+   55  docker ps 
+   57  docker  ps -a
+   58  docker images 
+   59  docker rm -f mypython : remove conatiner
+   60  docker images 
+   61  docker ps 
+   62  docker ps -a 
+   63  docker images 
+   64  docker rmi python  :removee image
+   65  docker images 
+
+ 
+
+Remmove multiple Container & multiple Image
+
+ docker stop mycentos myjenkins
+   70  docker rm -f  mycentos myjenkins ( stop mlp coantainers ) 
+   72  docker stop mytomcat
+   73  docker rm -f  mytomcat
+   75  docker rmi $(docker images -a -q) : remove all images when conatiner has been stoped
+   76  docker ps 
+   77  docker ps -a
+   78  docker images 
+   
+   
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--link 
+
+docker run --name mywebsite -d -p 2222:80 --link mydb:mysql wordpress
+
+task6: create database conatiner
+
+task7: link databse conatiner with word press
+
+task7: remove image(s) and conatiner(s) from docker 
+
+task 8: containers tomcat mysql php ( L/W-AMP Arch) 
+
+docker run --name php -d --link apche:tomcat --link mydb:mysql php 
+
+docker inspect php/tomcat/mysql  ( find out the link ) 
+
+
+++++++++++++++++++
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose –version
++++++++++++++++++++++++++
+docker-compose 
+vi docker-compose.yml
+---
+version: "3"
+services:
+  mydb:
+    image: mysql:5
+    environment:
+      MYSQL_ROOT_PASSWORD: babji
+  mysite:
+    image: wordpress
+    ports:
+      - 5555:80
+    links:
+      - mydb:mysql
+	  
+	  
+---
+docker-compose up -d 
+
+
++++++++++++++++++++++++++++++
+docker run --name c1 -it -v /data centos
+
+  108  mkdir /data
+  109  docker run --name c1 -it -v /data centos
+  110  docker inspect c1 
+  111  docker ps 
+  112  docker rm -f c1
+  113  docker ps 
+  114  cd /var/lib/docker/volumes/bd5bd19cc7f56daed0fb7365427353f4c97745d88df3d9025fcb1db037f711cc/_data
+  115  ls 
+  116  cat f1
+  117  cat f2
+  118  history
+root@ip-172-31-32-30:/var/lib/docker/volumes/bd5bd19cc7f56daed0fb7365427353f4c97745d88df3d9025fcb1db037f711cc/_data# 
+
++++++++++++
+
+dOCKER fILE -->
+
+FROM nginx
+MAINTAINER babji
+
+docker build -t myngnix .
+
+docker run -it myngnix
+------------
+@date / linux cmd / set of linux cmds
+FROM nginx
+MAINTAINER babji
+CMD ["date"]
+
+--------------
+GIT @ dockerfile 
+
+FROM ubuntu
+MAINTAINER babji
+RUN apt-get update
+RUN apt-get install -y git 
+
+TASK9: use docker compose
+TASk10:docker volume 
+task11: using dockerfile try to create git image & install git 
+TASK12: using dockerfile try to maven && Jenkins && tree package --> run the 3 packages 
+
+FROM ubuntu
+MAINTAINER babji
+RUN apt-get update
+RUN apt-get install -y git && apt-get install -y maven && apt-get install -y tree

@@ -1,0 +1,13 @@
+
+/Ansible
+# Ignore video files
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.mkv
+*.webm
+*.mpeg
+*.mpg
+*.m4v

@@ -1,0 +1,130 @@
+GIt & Git HUB : 
+
+Configure: 
+
+git config --list --> all about your configuration 
+
+git config --global user.name "BABJI-AWS-DEVOPS"
+git config --global user.email "babji.drru@gmail.com"
+
+USERNAME & PASSWORD
+
+git --version 
+    2  sudo yum install git -y 
+    3  git --version 
+    4  git config --list 
+    5  git config --global user.name "BABJI-AWS-DEVOPS"
+    6  git config --global user.email "babji.drru@gmail.com"
+    7  git config --list 
+    8  history 
+	
+-----------------------------------------------
+need to understand git / git branching stregy 
+--------------------------------------------------
+Git Commands : ( local ) 
+
+git init: this command is used to create repo.
+
+git status : this command is telling status of working dir files ( untracked / tracked files ) 
+
+Untracked files : files in working dir --> RED 
+
+Tracked files: files is in staging area --> GREEN 
+
+git add filename.ext --> only one file moving from working dir to staging area
+
+git add . --> all files from working dir to staging area
+
+git commit -m "MSG" ---> all files need to fix in local 
+
+git log --> behaviour of your git commit 
+
+---------------------------------------------------------------
+git hub : ( remote) 
+
+git remote add origin https://github.com/BABJI-AWS-DEVOPS/9amAWSDEVOPS-1.git (URL) --> link your local code to Remote Repo 
+
+git push -u origin master / main ( you local has been pused to remote location )
+
+------------------------------------------------------------------------
+Git Branching... 
+
+git branch branchname --> to verify number of branches in the trminal ..
+
+git branch branchname --> create branch (new )
+
+==========================================================
+
+git checkout branchname --> switch from master(main) towards child barnch
+
+git branch -d branchname --> we can delete branch 
+
+1. download git into PC --> try to lunnch git bash
+
+2. create git hub account ( gmail ) --> https://github.com/
+
+3. bridge between these to git & git hub 
+
+4. move your local git project to remote git hub using different git commands 
+
+5. share it .. 
+-------------------------------
+6. git branching commands 
+
+7. create varuios branches aand thier files 
+
+8. create new repo and push all the branches into new repo (github) 
+
+9.  repo --> old git hub ~ add new files from your local 
+
+----------------------------------------
+
+ 500  git init
+  501  touch h1.py h2.py h3.py
+  502  git status
+  503  clear
+  504  git add .
+  505  git status
+  506  git commit -m "First-commit"
+  507  cat h1.py
+  508  cat h2.py
+  509  cat h3.py
+  510  vi h2.py
+  511  cat h2.py
+  512  clear
+  513  cat h2.py
+  514  git stash
+  515  git stash list
+  516  cat h2.py
+  517  git stash apply stash@{0}
+  518  git stash show
+  519  cat h2.py
+  520  cat h3.py
+  521  clear
+  522  ls
+  523  cat h1.py
+  524  cat h2.py
+  525  cat h3.py
+  526  vi h3.py
+  527  cat h3.py
+  528  git stash
+  529  cat h3.py
+  530  git stash list
+  531  git stash apply
+  532  cat h3.py
+
+STASH  ( hide the data ) 
+
+git stash --> to hide the data 
+
+git stash list --> list stack indexs ( 0,1,2 ...)
+
+git stash apply stash@{index} 
+
+git push --> adding hide data 
+
+git pop --> delete hide data 
+
+git stash show --> we can check how many times made satshing in the respetive project. 
+
+GITIGNORE ( we can hiding files inside of .gitignore) 

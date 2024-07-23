@@ -1,0 +1,32 @@
+Ec2 DB
+
+sudo su -
+yum -y install mariadb-server wget
+systemctl enable mariadb
+systemctl start mariadb
+yum -y update
+
+Set Environmental Variables
+
+DBName=country
+DBPassword=admin123
+DBRootPassword=admin123
+DBUser=ec2dbuser
+
+Database Setup on EC2 Instance:
+
+echo "CREATE DATABASE ${DBName};" >> /tmp/db.setup
+echo "CREATE USER '${DBUser}' IDENTIFIED BY '${DBPassword}';" >> /tmp/db.setup
+echo "GRANT ALL PRIVILEGES ON *.* TO '${DBUser}'@'%';" >> /tmp/db.setup
+echo "FLUSH PRIVILEGES;" >> /tmp/db.setup
+mysqladmin -u root password "${DBRootPassword}"
+mysql -u root --password="${DBRootPassword}" < /tmp/db.setup
+rm /tmp/db.setup
+
+Adding some  data to the Database inside EC2 Instance:
+
+mysql -u root --password="${DBRootPassword}"
+USE country;
+CREATE TABLE mytable (id INT, name VARCHAR(45));
+INSERT INTO mytable VALUES(1, 'India'), (2, 'USA'), (3, 'UK'), (4, 'UAE');
+SELECT * FROM mytable;
