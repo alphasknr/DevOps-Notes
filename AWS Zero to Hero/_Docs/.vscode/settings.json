@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json": [
+            "file:///i%3A/DevOps-Notes/AWS%20Zero%20to%20Hero/_Docs/CFTCode.yml",
+            "file:///i%3A/DevOps-Notes/AWS%20Zero%20to%20Hero/_Docs/firstCFT.yaml"
+        ]
+    }
+}
